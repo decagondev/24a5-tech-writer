@@ -1,23 +1,83 @@
-# AI for Developer Productivity: Technical Writer Agent
+# Technical Writer Agent
 
-## Overview
-In this project, we developed a **Technical Writer Agent** to enhance developer productivity. The core functionality of our agent leverages Retrieval-Augmented Generation (RAG) to dynamically update and refine technical documentation. This innovative approach not only streamlines the documentation process but also ensures that it remains accurate, up-to-date, and contextually relevant.
+## Introduction
+This project demonstrates the development of a **Technical Writer Agent** designed to enhance developer productivity. By leveraging Retrieval-Augmented Generation (RAG), our agent dynamically updates and refines technical documentation, ensuring it remains accurate, up-to-date, and contextually relevant.
+
+## Prerequisites
+- Docker (for containerized usage)
+- Python 3.11 (for local setup)
+- GitHub account
+- OpenAI API key
+
+## Setup
+
+### 1. Environment Variables:
+Copy the sample environment file and edit it with your API keys:
+```
+cp .env.sample .env
+```
+Edit the `.env` file and add your required variables:
+```
+GITHUB_TOKEN=your_github_token
+OPENAI_API_KEY=your_openai_key
+REPO_PATH=your_repo_path
+PR_NUMBER=your_pr_number
+```
+
+### 2. Docker Setup:
+1. Build the Docker image:
+   ```
+   docker build -t technical-writer-agent .
+   ```
+2. Run the container:
+   ```
+   docker run --env-file .env technical-writer-agent
+   ```
+
+### Local Setup (Alternative to Docker):
+1. Ensure you have Python 3.11+ installed.
+2. Set up a virtual environment:
+   ```
+   python3 -m venv .venv
+   source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+   ```
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+4. Run the main script:
+   ```
+   python main.py
+   ```
+
+## Project Structure
+- `main.py`: Main script that orchestrates the Technical Writer Agent
+- `utility.py`: Contains utility functions for GitHub interactions and OpenAI API calls
+- `requirements.txt`: List of Python dependencies
+- `Dockerfile`: Instructions for building the Docker image
+- `README.md`: Project documentation (this file)
 
 ## Now It's Your Turn!
-Embrace your creativity and personalize this project to craft a solution that uniquely addresses the challenges and inefficiencies you face in your own environment. After seeing what our Technical Writer Agent can do, it’s time for you to take the reins. Use the foundation we’ve built and apply it to a challenge you face in your own professional or personal environment. Here’s how you can get started:
+We encourage you to personalize this project and address challenges in your own environment. Here's how you can get started:
 
 ### Minimum Requirements
-1. **RAG Integration:** Successfully integrate Retrieval-Augmented Generation (RAG) to enable your agent to access and utilize external information when generating responses.
-2. **Vector Database Implementation:** Create and implement a vector data store capable of embedding and retrieving documents, ensuring that the system can access necessary information efficiently.
+1. **RAG Integration:** Implement Retrieval-Augmented Generation to enable your agent to access and utilize external information.
+2. **Vector Database Implementation:** Create and implement a vector data store for efficient document embedding and retrieval.
 
 ### Stretch Goals
-1. **Enhanced UI/UX:** Develop a more advanced and user-friendly interface that includes features such as real-time suggestions, auto-completion of content, and a more interactive documentation process.
-2. **Automated Content Updates:** Implement a feature where the agent periodically checks and updates existing documentation based on new information or changes in the relevant field, ensuring that all documentation remains current without manual intervention.
-3. **Integration with Existing Tools:** Develop integrations for the agent with commonly used development tools and platforms (e.g., Confluence, Jira, Notion) to streamline workflows and increase accessibility.
-4. **Add The Features You Want**: Let your creativity shine by adding a unique feature that significantly simplifies or enhances your daily routines. Innovate with functionalities that solve problems and improve efficiency or satisfaction in meaningful ways.
+1. **Enhanced UI/UX:** Develop a user-friendly interface with features like real-time suggestions and auto-completion.
+2. **Automated Content Updates:** Implement periodic checks and updates to keep documentation current.
+3. **Integration with Existing Tools:** Develop integrations with common development tools (e.g., Confluence, Jira, Notion).
+4. **Custom Features:** Add unique features that simplify your daily routines and improve efficiency.
 
 ## Privacy and Submission Guidelines
-- **Submission Requirements:** Please submit a link to your public repo with your implementation or a loom video showcasing your work on the [BloomTech AI Platform](app.bloomtech.com). 
-- **Sensitive Information:** If your implementation involves sensitive information, you are not required to submit a public repository. Instead, a detailed review of your project through a Loom video is acceptable, where you can demonstrate the functionality and discuss the technologies used without exposing confidential data.
+- **Submission Requirements:** Submit a link to your public repo or a Loom video showcasing your work on the [BloomTech AI Platform](https://app.bloomtech.com).
+- **Sensitive Information:** If your implementation involves sensitive data, a detailed Loom video demonstration is acceptable instead of a public repository.
 
----
+## Troubleshooting
+- Ensure all required environment variables are set in your `.env` file.
+- For Docker issues, check your Docker installation and version.
+- If you encounter package issues in local setup, try updating pip: `pip install --upgrade pip`
+
+## Need Help?
+Refer to the project documentation or reach out to the course instructor or learning assistant.
