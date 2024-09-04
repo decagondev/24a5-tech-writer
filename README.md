@@ -20,8 +20,6 @@ Edit the `.env` file and add your required variables:
 ```
 GITHUB_TOKEN=your_github_token
 OPENAI_API_KEY=your_openai_key
-REPO_PATH=your_repo_path
-PR_NUMBER=your_pr_number
 ```
 
 ### 2. Docker Setup:
