@@ -7,29 +7,34 @@ This project demonstrates the development of a **Technical Writer Agent** design
 - Docker (for containerized usage)
 - Python 3.11 (for local setup)
 - GitHub account
-- OpenAI API key
 
 ## Setup
 
 ### 1. Environment Variables:
 Copy the sample environment file and edit it with your API keys:
-```
-cp .env.sample .env
-```
+   ```
+   cp .env.sample .env
+   ```
 Edit the `.env` file and add your required variables:
-```
-GITHUB_TOKEN=your_github_token
-OPENAI_API_KEY=your_openai_key
-```
+   ```
+   GITHUB_TOKEN=your_github_token
+   OPENAI_API_KEY=your_openai_key
+   ```
+Export your `.env` variables to the system:
 
-### 2. Docker Setup:
+   **Linux / Mac / Bash**
+   ```
+   export $(grep -v '^#' .env | xargs)
+   ```
+
+### 2. Docker:
 1. Build the Docker image:
    ```
    docker build -t technical-writer-agent .
    ```
 2. Run the container:
    ```
-   docker run --env-file .env technical-writer-agent
+   docker run --rm -it --env-file .env --mount type=bind,source="$(pwd)",target=/app technical-writer-agent
    ```
 
 ### Local Setup (Alternative to Docker):
@@ -49,11 +54,10 @@ OPENAI_API_KEY=your_openai_key
    ```
 
 ## Project Structure
-- `main.py`: Main script that orchestrates the Technical Writer Agent
-- `utility.py`: Contains utility functions for GitHub interactions and OpenAI API calls
 - `requirements.txt`: List of Python dependencies
 - `Dockerfile`: Instructions for building the Docker image
-- `README.md`: Project documentation (this file)
+- `main.py`: Main script that orchestrates the Technical Writer Agent
+- `utility.py`: Contains utility functions for GitHub interactions and OpenAI API calls
 
 ## Now It's Your Turn!
 We encourage you to personalize this project and address challenges in your own environment. Here's how you can get started:
